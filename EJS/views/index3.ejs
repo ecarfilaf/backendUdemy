@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Name Letters</title>
+		<%- include('head') %>
+	</head>
+
+	<body>
+		<!-- Write your code here -->
+		<div class="container">
+			<p>
+				<h1>
+					<% if (locals.letterNumber) { %>
+						There are <%= letterNumber %> letters in your name.
+					<% } else { %>
+						Enter your name below
+					<% } %>
+				</h1>
+			</p>
+			<form action="/submit" method="POST">
+				<input type="text" name="fName" placeholder="First name">
+				<input type="text" name="lName" placeholder="Last name">
+				<input type="submit" value="OK">
+			</form>
+		</div>
+	</body>
+	<%- include('footer') %>
+
+</html>
