@@ -1,0 +1,13 @@
+<%- include('header') %>
+
+<div class="container">
+	<% if (locals.category) { %>
+		<h3><%-category %></h3>
+		<p></p>
+		<h2><%-setup %></h3>
+		<p></p>
+		<p class="body-emphasis"><%-delivery %></p>
+	<% } %>
+</div>
+
+<%- include('footer') %>
