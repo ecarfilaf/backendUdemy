@@ -17,7 +17,7 @@ db.connect();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-async function checkVisisted() {
+async function checkVisited() {
 	const result = await db.query("SELECT country_code FROM visited_countries");
 	let countries = [];
 	result.rows.forEach((country) => {
@@ -58,7 +58,7 @@ app.post("/add", async (req, res) => {
 		res.redirect("/");
 		} catch (err) {
 		console.log(err);
-		const countries = await checkVisisted();
+		const countries = await checkVisited();
 		res.render("index.ejs", {
 			countries: countries,
 			total: countries.length,
@@ -67,7 +67,7 @@ app.post("/add", async (req, res) => {
 		}
 	} catch (err) {
 		console.log(err);
-		const countries = await checkVisisted();
+		const countries = await checkVisited();
 		res.render("index.ejs", {
 		countries: countries,
 		total: countries.length,
